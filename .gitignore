@@ -1,0 +1,17 @@
+# 의존성
+node_modules/
+app/node_modules/
+
+# 빌드 산출물 (app)
+app/dist/
+
+# 도구 임시 파일
+.playwright-mcp/
+*.log
+
+# OS
+Thumbs.db
+.DS_Store
+
+# 참고: dist/ 와 app/public/dist/ 는 추적합니다.
+#       폐쇄망 반입 시 저장소만 받아도 산출물이 함께 있어야 하기 때문입니다.

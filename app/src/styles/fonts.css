@@ -1,0 +1,37 @@
+/* SOLIDEO Design System — 자체 호스팅 서체
+ *
+ * Pretendard · SIL Open Font License 1.1
+ * CDN을 쓰지 않습니다. 폰트 파일을 프로젝트에 포함해 배포하므로
+ * 폐쇄망에서 동작하고, 외부(fonts.googleapis.com 등)로 요청이 나가지 않습니다.
+ *
+ * 필요한 4가지 굵기만 담았습니다. 400/500/700/800 외의 굵기는 쓰지 않습니다.
+ */
+
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/Pretendard-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/Pretendard-Medium.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/Pretendard-Bold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/Pretendard-ExtraBold.woff2') format('woff2');
+}

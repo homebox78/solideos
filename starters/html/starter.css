@@ -1,0 +1,150 @@
+/* SOLIDEO Design System — 스타터 킷 화면 레이아웃
+ *
+ * 컴포넌트가 아니라 이 화면의 배치만 담습니다.
+ * 값은 전부 토큰을 참조합니다. 새 화면을 만들 때 이 파일을 복사해 시작하세요.
+ */
+
+/* 본문 최대 폭과 좌우 여백 */
+.shell {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 var(--space-5);
+}
+
+body { margin: 0; background: var(--bg-primary); }
+
+/* 건너뛰기 링크 — 포커스를 받으면 좌측 상단에 나타납니다 */
+.skip:focus {
+  position: fixed;
+  top: var(--space-3);
+  left: var(--space-3);
+  z-index: 100;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-sm);
+  background: var(--fill-accent);
+  color: var(--text-inverse);
+  font-weight: var(--font-weight-bold);
+}
+
+/* 전자정부 안내 배너 */
+.gov-banner {
+  background: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border-primary);
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+}
+.gov-banner .shell { padding-top: 6px; padding-bottom: 6px; }
+
+/* 헤더 */
+.site-header { border-bottom: 1px solid var(--border-primary); }
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  min-height: 72px;
+  flex-wrap: wrap;
+}
+.brand {
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-black);
+  color: var(--text-primary);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.brand span { font-weight: var(--font-weight-medium); color: var(--text-secondary); }
+
+.gnb { display: flex; gap: var(--space-5); }
+.gnb a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+  border-bottom: 2px solid transparent;
+}
+.gnb a:hover { color: var(--text-primary); }
+.gnb a[aria-current='page'] {
+  color: var(--text-primary);
+  font-weight: var(--font-weight-bold);
+  border-bottom-color: var(--border-accent);
+}
+
+.a11y { margin-left: auto; display: flex; gap: var(--space-1); }
+.a11y [aria-pressed='true'] {
+  background: var(--fill-accent-subtle);
+  color: var(--text-accent);
+  font-weight: var(--font-weight-bold);
+}
+
+/* 본문 */
+main { padding: var(--space-8) 0 var(--space-20); outline: none; }
+.page-title {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-tight);
+  margin: var(--space-3) 0 var(--space-6);
+}
+.section-title {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-bold);
+  margin: 0 0 var(--space-4);
+}
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-top: var(--space-12);
+}
+.count { font-size: var(--font-size-sm); color: var(--text-secondary); }
+
+.panel {
+  margin-top: var(--space-12);
+  padding: var(--space-6);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-md);
+}
+
+/* 검색 필터 */
+.filter { display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: end; }
+.filter .sds-field { min-width: 200px; }
+.filter__actions { display: flex; gap: var(--space-2); }
+
+.pager { display: flex; justify-content: center; margin-top: var(--space-6); }
+
+/* 폼 */
+.form fieldset {
+  margin: 0 0 var(--space-8);
+  padding: 0;
+  border: 0;
+}
+.form legend { padding: 0; }
+.form .sds-field { margin-bottom: var(--space-5); max-width: 520px; }
+.form__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+}
+.steps-wrap { margin-bottom: var(--space-8); }
+.steps-desc { margin: 0 0 var(--space-3); font-size: var(--font-size-sm); color: var(--text-secondary); }
+
+/* 푸터 */
+.site-footer {
+  border-top: 1px solid var(--border-primary);
+  background: var(--bg-secondary);
+  padding: var(--space-10) 0;
+}
+.footer-nav { display: flex; flex-wrap: wrap; gap: var(--space-5); margin-bottom: var(--space-5); }
+.footer-nav a { color: var(--text-secondary); font-size: var(--font-size-sm); }
+.identifier { margin: 0 0 var(--space-3); font-size: var(--font-size-sm); color: var(--text-secondary); }
+.copyright { margin: 0; font-size: var(--font-size-xs); color: var(--text-tertiary); line-height: 1.8; }
+
+/* 모바일 */
+@media (max-width: 720px) {
+  .header-inner { padding-top: var(--space-3); padding-bottom: var(--space-3); }
+  .a11y { margin-left: 0; width: 100%; }
+  .filter .sds-field { min-width: 100%; }
+}

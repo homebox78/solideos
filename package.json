@@ -1,0 +1,58 @@
+{
+  "name": "@solideo/design-system",
+  "version": "1.3.1",
+  "description": "SOLIDEO Design System — Solid Flow. 솔리데오 SI 프로젝트 공통 디자인 시스템(디자인 토큰 · 컴포넌트 · 가이드)",
+  "license": "UNLICENSED",
+  "private": true,
+  "type": "module",
+  "main": "./dist/solideo-tokens.cjs",
+  "module": "./dist/solideo-tokens.js",
+  "types": "./dist/solideo-tokens.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/solideo-tokens.d.ts",
+      "import": "./dist/solideo-tokens.js",
+      "require": "./dist/solideo-tokens.cjs"
+    },
+    "./css": "./dist/solideo-tokens.css",
+    "./scss": "./dist/solideo-tokens.scss",
+    "./less": "./dist/solideo-tokens.less",
+    "./json": "./dist/solideo-tokens.flat.json",
+    "./properties": "./dist/solideo-tokens.properties",
+    "./tailwind": "./dist/tailwind.preset.cjs",
+    "./shadcn": "./dist/solideo-shadcn.css",
+    "./quasar": "./dist/quasar.variables.sass",
+    "./java": "./dist/SolideoTokens.java",
+    "./components.css": "./dist/solideo-components.css",
+    "./dark": "./dist/solideo-dark.css",
+    "./figma": "./dist/solideo-figma.tokens.json"
+  },
+  "files": [
+    "dist",
+    "tokens",
+    "tools",
+    "css",
+    "starters"
+  ],
+  "scripts": {
+    "build:tokens": "node tokens/build.mjs",
+    "build:icons": "node tools/build-icons.mjs",
+    "build": "node tokens/build.mjs && node tools/build-icons.mjs && node tools/build-components-css.mjs && npm run build:krds && npm --prefix app run build",
+    "verify": "node tokens/verify.mjs",
+    "audit": "node tools/audit-offline.mjs",
+    "check": "node tokens/build.mjs && node tools/build-icons.mjs && node tools/build-components-css.mjs && npm run build:krds && node tokens/verify.mjs && node tools/audit-offline.mjs",
+    "dev": "npm --prefix app run dev",
+    "build:krds": "node tools/build-krds.mjs && node tools/build-krds-patterns.mjs",
+    "build:css": "node tools/build-components-css.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "design-system",
+    "design-tokens",
+    "solideo",
+    "accessibility",
+    "kwcag"
+  ]
+}

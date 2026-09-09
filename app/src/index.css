@@ -1,0 +1,41 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* 자체 호스팅 서체 — CDN 사용 안 함 */
+@import "./styles/fonts.css";
+
+/* 솔리데오 디자인 토큰 — tokens/tokens.json 에서 자동 생성 */
+@import "./styles/solideo-tokens.css";
+/* shadcn/ui 표준 변수 ↔ 솔리데오 토큰 연결 + Tailwind v4 @theme */
+@import "./styles/solideo-shadcn.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@layer base {
+  * { @apply border-border outline-ring/50; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-normal);
+  }
+  /* KRDS 글자 크기 설정 - 사용자가 3단계로 조절
+     모든 글자 크기 토큰이 rem 이므로 루트 크기만 바꾸면 전체가 비례해 커집니다.
+     px 로 고정된 글자 크기가 있으면 이 설정이 그 부분만 건너뛰므로 쓰지 마세요. */
+  html[data-font-scale="lg"]  { font-size: 112.5%; }
+  html[data-font-scale="xl"]  { font-size: 125%; }
+  /* KRDS 접근성 - 키보드 포커스는 항상 보이게 */
+  :focus-visible { outline: 2px solid var(--border-focus); outline-offset: 2px; }
+
+  /* 페이지 내 이동으로 초점을 받은 섹션에는 테두리를 그리지 않습니다.
+     초점이 옮겨진 사실은 스크롤과 스크린리더 낭독으로 이미 전달됩니다. */
+  section[tabindex='-1']:focus { outline: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
