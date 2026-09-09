@@ -653,7 +653,7 @@
       "type": "fontFamily"
     },
     "font-family-mono": {
-      "value": "\"JetBrains Mono\", \"D2Coding\", ui-monospace, SFMono-Regular, monospace",
+      "value": "\"Pretendard\", \"Pretendard Variable\", \"Noto Sans KR\", -apple-system, BlinkMacSystemFont, \"Malgun Gothic\", sans-serif",
       "type": "fontFamily"
     },
     "line-height-tight": {

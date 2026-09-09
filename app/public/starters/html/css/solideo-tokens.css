@@ -206,7 +206,7 @@
 
   /* font.family */
   --font-family-sans: "Pretendard", "Pretendard Variable", "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Malgun Gothic", sans-serif;
-  --font-family-mono: "JetBrains Mono", "D2Coding", ui-monospace, SFMono-Regular, monospace;
+  --font-family-mono: "Pretendard", "Pretendard Variable", "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Malgun Gothic", sans-serif;
 
   /* line-height */
   --line-height-tight: 1.25;

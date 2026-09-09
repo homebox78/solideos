@@ -164,7 +164,7 @@ export const tokens = {
   fontWeightBold: 700,
   fontWeightBlack: 800,
   fontFamilySans: "\"Pretendard\", \"Pretendard Variable\", \"Noto Sans KR\", -apple-system, BlinkMacSystemFont, \"Malgun Gothic\", sans-serif",
-  fontFamilyMono: "\"JetBrains Mono\", \"D2Coding\", ui-monospace, SFMono-Regular, monospace",
+  fontFamilyMono: "\"Pretendard\", \"Pretendard Variable\", \"Noto Sans KR\", -apple-system, BlinkMacSystemFont, \"Malgun Gothic\", sans-serif",
   lineHeightTight: 1.25,
   lineHeightNormal: 1.5,
   lineHeightLoose: 1.7,

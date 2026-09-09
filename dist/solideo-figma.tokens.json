@@ -700,7 +700,7 @@
           "type": "fontFamilies"
         },
         "mono": {
-          "value": "\"JetBrains Mono\", \"D2Coding\", ui-monospace, SFMono-Regular, monospace",
+          "value": "\"Pretendard\", \"Pretendard Variable\", \"Noto Sans KR\", -apple-system, BlinkMacSystemFont, \"Malgun Gothic\", sans-serif",
           "type": "fontFamilies"
         }
       }

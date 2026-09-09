@@ -336,7 +336,7 @@ public final class SolideoTokens {
     /** font.family.sans */
     public static final String FONT_FAMILY_SANS = ""Pretendard", "Pretendard Variable", "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Malgun Gothic", sans-serif";
     /** font.family.mono */
-    public static final String FONT_FAMILY_MONO = ""JetBrains Mono", "D2Coding", ui-monospace, SFMono-Regular, monospace";
+    public static final String FONT_FAMILY_MONO = ""Pretendard", "Pretendard Variable", "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Malgun Gothic", sans-serif";
     /** line-height.tight */
     public static final String LINE_HEIGHT_TIGHT = "1.25";
     /** line-height.normal */
