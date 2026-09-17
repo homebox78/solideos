@@ -85,7 +85,7 @@ export default function AiInteraction() {
       <Section id="prompt-output" title="Prompt Output">
         <ExampleBlock>
           <Card className="max-w-xl gap-0 rounded-lg p-5 shadow-none">
-            <Badge className="mb-3 w-fit bg-fill-accent-subtle text-text-accent">AI 생성</Badge>
+            <Badge variant="accent" className="mb-3 w-fit">AI 생성</Badge>
             <p className="text-sm leading-relaxed">
               신청서에서 보완이 필요한 항목은 2건입니다. 첨부된 사업계획서에 예산 산출 근거가 없고,
               담당자 연락처가 비어 있습니다.

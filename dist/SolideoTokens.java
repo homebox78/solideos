@@ -1,7 +1,7 @@
 package com.solideo.designsystem;
 
 /**
- * SOLIDEO Design System — Design Tokens (v1.3.1)
+ * SOLIDEO Design System — Design Tokens (v1.3.2)
  *
  * 자동 생성 파일입니다. 직접 수정하지 마세요. (원본: tokens/tokens.json)
  * 서버에서 색 값이 필요한 경우(메일 템플릿 · PDF · 리포트)에 사용합니다.

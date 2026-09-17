@@ -38,7 +38,7 @@ export function KrdsGuide({ id }: { id: string }) {
           </Badge>
         ))}
         {[...new Set(items.flatMap((c) => c.kwcag))].map((k) => (
-          <Badge key={k} className="rounded-xs bg-fill-accent-subtle text-text-accent">
+          <Badge key={k} variant="accent" className="rounded-xs">
             KWCAG {k}
           </Badge>
         ))}

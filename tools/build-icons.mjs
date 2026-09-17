@@ -138,4 +138,27 @@ writeFileSync(OUT, out, 'utf8')
 
 const bytes = Buffer.byteLength(out, 'utf8')
 console.log(`  ✓ app/src/components/ui/icons.generated.ts  ${entries.length}개 · ${bytes} bytes`)
+
+/*
+ * HTML · JSP 용 SVG 스프라이트
+ *
+ * React 가 아닌 프로젝트는 같은 아이콘을 <use> 로 참조합니다.
+ *   <svg class="sds-icon" aria-hidden="true"><use href="icons.svg#search"></use></svg>
+ *
+ * 주의: 외부 스프라이트는 브라우저가 file:// 로 연 페이지에서 막습니다(교차 출처).
+ * 서버(Tomcat · Apache · 로컬 개발 서버)로 띄우면 동작합니다.
+ * 파일을 더블클릭해 열어야 하는 산출물이라면 <symbol> 을 문서 안에 인라인으로 넣으세요.
+ */
+const sprite =
+  `<svg xmlns="http://www.w3.org/2000/svg" style="display:none">\n` +
+  `<!-- SOLIDEO Design System · Material Symbols (Outlined 400) · Apache License 2.0\n` +
+  `     자동 생성: node tools/build-icons.mjs · 아이콘 ${entries.length}개 -->\n` +
+  entries.map(([k, d]) => `  <symbol id="${k}" viewBox="0 -960 960 960"><path d="${d}"/></symbol>`).join('\n') +
+  `\n</svg>\n`
+for (const rel of ['dist/solideo-icons.svg', 'starters/html/icons.svg', 'app/public/starters/html/icons.svg']) {
+  const p = join(ROOT, rel)
+  mkdirSync(dirname(p), { recursive: true })
+  writeFileSync(p, sprite, 'utf8')
+}
+console.log(`  ✓ dist/solideo-icons.svg                   HTML · JSP 스프라이트`)
 console.log('\n외부 요청 0건. 폐쇄망에서 그대로 동작합니다.')

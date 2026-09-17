@@ -1,6 +1,6 @@
 {
   "name": "@solideo/design-system",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "SOLIDEO Design System — Solid Flow. 솔리데오 SI 프로젝트 공통 디자인 시스템(디자인 토큰 · 컴포넌트 · 가이드)",
   "license": "UNLICENSED",
   "private": true,
@@ -25,7 +25,8 @@
     "./java": "./dist/SolideoTokens.java",
     "./components.css": "./dist/solideo-components.css",
     "./dark": "./dist/solideo-dark.css",
-    "./figma": "./dist/solideo-figma.tokens.json"
+    "./figma": "./dist/solideo-figma.tokens.json",
+    "./react/*": "./dist/react/*"
   },
   "files": [
     "dist",
@@ -37,13 +38,14 @@
   "scripts": {
     "build:tokens": "node tokens/build.mjs",
     "build:icons": "node tools/build-icons.mjs",
-    "build": "node tokens/build.mjs && node tools/build-icons.mjs && node tools/build-components-css.mjs && npm run build:krds && npm --prefix app run build",
+    "build": "node tokens/build.mjs && node tools/build-icons.mjs && node tools/build-components-css.mjs && npm run build:krds && node tools/build-react-kit.mjs && npm --prefix app run build",
     "verify": "node tokens/verify.mjs",
     "audit": "node tools/audit-offline.mjs",
-    "check": "node tokens/build.mjs && node tools/build-icons.mjs && node tools/build-components-css.mjs && npm run build:krds && node tokens/verify.mjs && node tools/audit-offline.mjs",
+    "check": "node tokens/build.mjs && node tools/build-icons.mjs && node tools/build-components-css.mjs && npm run build:krds && node tools/build-react-kit.mjs && node tokens/verify.mjs && node tools/audit-offline.mjs",
     "dev": "npm --prefix app run dev",
     "build:krds": "node tools/build-krds.mjs && node tools/build-krds-patterns.mjs",
-    "build:css": "node tools/build-components-css.mjs"
+    "build:css": "node tools/build-components-css.mjs",
+    "build:react": "node tools/build-react-kit.mjs"
   },
   "engines": {
     "node": ">=18"

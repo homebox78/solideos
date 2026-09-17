@@ -135,6 +135,11 @@ function buildCss() {
   lines.push('\n  /* alias — 이전 명칭. 신규 코드에서는 사용하지 마세요. */');
   for (const [from, to] of ALIASES) lines.push(`  --${from}: var(--${to});`);
   lines.push('}\n');
+  /* KRDS 글자 크기 설정 — 글자 크기 토큰이 전부 rem 이라 루트 크기만 바꾸면 전체가 비례합니다.
+     토큰 CSS 에 실어야 React 가 아닌 프로젝트(HTML · JSP)에서도 설정이 동작합니다. */
+  lines.push('/* KRDS 글자 크기 설정 · <html data-font-scale="base | lg | xl"> */');
+  lines.push('html[data-font-scale="lg"] { font-size: 112.5%; }');
+  lines.push('html[data-font-scale="xl"] { font-size: 125%; }\n');
   return lines.join('\n');
 }
 

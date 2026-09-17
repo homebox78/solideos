@@ -131,10 +131,7 @@ export default function Patterns() {
                 <CheckboxField
                   label={label}
                   trailing={
-                    <Badge
-                      className={req === '필수' ? 'bg-fill-critical-subtle text-text-critical' : ''}
-                      variant={req === '필수' ? 'default' : 'secondary'}
-                    >
+                    <Badge variant={req === '필수' ? 'critical' : 'secondary'}>
                       {req}
                     </Badge>
                   }

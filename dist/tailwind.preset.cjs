@@ -1,4 +1,4 @@
-// SOLIDEO Design System — Tailwind preset (1.3.1)
+// SOLIDEO Design System — Tailwind preset (1.3.2)
 // 자동 생성 파일입니다. solideo-tokens.css 를 함께 불러와야 var() 가 해석됩니다.
 module.exports = {
   "theme": {

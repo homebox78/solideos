@@ -161,7 +161,7 @@ export const ASSETS: Asset[] = [
   {
     role: 'developer', kind: '컴포넌트', title: '컴포넌트 — CSS only',
     project: '디자인 시스템', year: '2026', format: 'CSS', size: '15 KB',
-    desc: 'React 없이 쓰는 .sds-* 클래스 70개. JSP · Thymeleaf · 퍼블리싱 산출물에 그대로 붙습니다.',
+    desc: 'React 없이 쓰는 .sds-* 클래스 73개. JSP · Thymeleaf · 퍼블리싱 산출물에 그대로 붙습니다.',
     owner: '디자인시스템', href: 'dist/solideo-components.css', status: 'ready', preview: 'code',
     stack: ['HTML/JSP', 'Thymeleaf', '공통'],
   },

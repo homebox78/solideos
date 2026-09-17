@@ -39,7 +39,7 @@ export interface Section {
 
 export const SYSTEM = {
   name: 'Solid Flow',
-  version: 'v1.3.1',
+  version: 'v1.3.2',
   org: '㈜솔리데오',
   tagline: '흔들리지 않는 신뢰 위에, 끊기지 않는 흐름',
   meta: '솔리데오 UI/UX 원칙과 가이드를 소개합니다.',

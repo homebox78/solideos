@@ -130,7 +130,9 @@ export default function ComponentsPage() {
       <Section id="button" title="Button" krds="액션 > 버튼">
         <P>한 화면의 Primary는 하나입니다. 나머지 행동은 Secondary 이하로 낮춥니다.</P>
         <Markup
-          react={`<Button>신청서 제출</Button>
+          react={`import { Button } from '@/components/ui/button'
+
+<Button>신청서 제출</Button>
 <Button variant="outline">임시저장</Button>
 <Button variant="secondary">취소</Button>
 <Button variant="ghost">더보기</Button>
@@ -251,7 +253,9 @@ export default function ComponentsPage() {
         <P>라벨은 항상 필드 위에 둡니다. 플레이스홀더로 라벨을 대신하지 않습니다.</P>
         <Markup
           block
-          react={`<TextField label="사업자등록번호" required hint="하이픈 없이 숫자만 입력해도 됩니다." />
+          react={`import { TextField } from '@/components/ui/field'
+
+<TextField label="사업자등록번호" required hint="하이픈 없이 숫자만 입력해도 됩니다." />
 <TextField label="담당자 이메일" error="이메일 형식이 올바르지 않습니다. 예: hong@solideos.com" />`}
           html={`<div class="sds-field">
   <label class="sds-label" for="biz">
@@ -373,9 +377,21 @@ export default function ComponentsPage() {
           <Code>Foundations › Iconography</Code> 갤러리에서 볼 수 있습니다.
         </P>
         <Markup
-          react={`<Icon name="search" />                  // 장식 (aria-hidden 자동)
+          react={`import { Icon } from '@/components/ui/icon'
+
+<Icon name="search" />                  // 장식 (aria-hidden 자동)
 <Icon name="close" label="닫기" />       // 의미 전달 (role="img")
 <Icon name="download" size="lg" />`}
+          html={`<!-- 장식 · 옆에 텍스트가 있으면 aria-hidden -->
+<svg class="sds-icon" aria-hidden="true"><use href="./icons.svg#search"></use></svg>
+
+<!-- 의미 전달 · 아이콘만 있는 버튼 -->
+<button type="button" class="sds-btn sds-btn--ghost sds-btn--icon" aria-label="닫기">
+  <svg class="sds-icon" aria-hidden="true"><use href="./icons.svg#close"></use></svg>
+</button>
+
+<!-- icons.svg 는 dist/solideo-icons.svg · 스타터 킷에 들어 있습니다.
+     file:// 로 연 페이지에서는 브라우저가 외부 스프라이트를 막으니 서버로 띄우세요. -->`}
         >
           <Icon name="search" size="lg" />
           <Icon name="download" size="lg" />
@@ -441,6 +457,19 @@ export default function ComponentsPage() {
       <Section id="checkbox" title="Checkbox" krds="선택 > 체크박스">
         <Markup
           block
+          react={`import { CheckboxField } from '@/components/ui/field'
+import { Badge } from '@/components/ui/badge'
+
+// label 과 체크박스가 자동으로 연결됩니다 (Radix Checkbox 는 <button> 이라 <label> 만으로는 이름이 안 붙습니다)
+<CheckboxField
+  label="개인정보 수집 · 이용에 동의합니다"
+  defaultChecked
+  trailing={<Badge variant="critical">필수</Badge>}
+/>
+<CheckboxField
+  label="마케팅 정보 수신에 동의합니다"
+  trailing={<Badge variant="secondary">선택</Badge>}
+/>`}
           html={`<div class="sds-choice">
   <input class="sds-checkbox" type="checkbox" id="agree1" checked>
   <label for="agree1">개인정보 수집 · 이용에 동의합니다</label>
@@ -456,7 +485,7 @@ export default function ComponentsPage() {
             <CheckboxField
               label="개인정보 수집 · 이용에 동의합니다"
               defaultChecked
-              trailing={<Badge className="bg-fill-critical-subtle text-text-critical">필수</Badge>}
+              trailing={<Badge variant="critical">필수</Badge>}
             />
             <CheckboxField
               label="마케팅 정보 수신에 동의합니다"
@@ -491,6 +520,10 @@ export default function ComponentsPage() {
 
       <Section id="switch" title="Switch" krds="설정 > 스위치">
         <Markup
+          react={`import { SwitchField } from '@/components/ui/field'
+
+<SwitchField label="알림 받기" defaultChecked />
+<SwitchField label="자동 임시저장" onCheckedChange={(on) => save({ autosave: on })} />`}
           html={`<label class="sds-switch">
   <input type="checkbox" role="switch" checked>
   <span class="sds-switch__track"></span>
@@ -533,7 +566,11 @@ export default function ComponentsPage() {
 
       <Section id="breadcrumb" title="Breadcrumb" krds="탐색 > 브레드크럼">
         <Markup
-          react={`<Breadcrumb>
+          react={`import {
+  Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator,
+} from '@/components/ui/breadcrumb'
+
+<Breadcrumb>
   <BreadcrumbList>
     <BreadcrumbItem><BreadcrumbLink href="/">홈</BreadcrumbLink></BreadcrumbItem>
     <BreadcrumbSeparator />
@@ -587,6 +624,19 @@ export default function ComponentsPage() {
       <Section id="pagination" title="Pagination" krds="탐색 > 페이지네이션">
         <Markup
           block
+          react={`import {
+  Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious,
+} from '@/components/ui/pagination'
+
+<Pagination>
+  <PaginationContent>
+    <PaginationItem><PaginationPrevious href="?page=1" /></PaginationItem>
+    <PaginationItem><PaginationLink href="?page=1" isActive>1</PaginationLink></PaginationItem>
+    <PaginationItem><PaginationLink href="?page=2">2</PaginationLink></PaginationItem>
+    <PaginationItem><PaginationLink href="?page=3">3</PaginationLink></PaginationItem>
+    <PaginationItem><PaginationNext href="?page=2" /></PaginationItem>
+  </PaginationContent>
+</Pagination>`}
           html={`<nav aria-label="페이지 이동">
   <ul class="sds-pagination">
     <li><a href="?page=1" aria-label="이전 페이지">‹</a></li>
@@ -634,6 +684,18 @@ export default function ComponentsPage() {
       <Section id="alert" title="Alert" krds="피드백 > 알림">
         <Markup
           block
+          react={`import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
+
+<Alert variant="info">
+  <AlertTitle>제출 마감 안내</AlertTitle>
+  <AlertDescription>제출 마감은 2026년 10월 31일(금) 18:00입니다.</AlertDescription>
+</Alert>
+
+// variant: info · positive · caution · critical
+<Alert variant="critical" role="alert">
+  <AlertTitle>입력 확인 필요</AlertTitle>
+  <AlertDescription>필수 항목 3개가 입력되지 않았습니다.</AlertDescription>
+</Alert>`}
           html={`<div class="sds-alert">
   <div>
     <p class="sds-alert__title">제출 마감 안내</p>
@@ -649,17 +711,17 @@ export default function ComponentsPage() {
 </div>`}
         >
           <div className="space-y-3">
-            <Alert className="border-l-4 border-l-blue-500 bg-fill-info-subtle">
+            <Alert variant="info">
               <Icon name="info" className="size-4" />
               <AlertTitle>제출 마감 안내</AlertTitle>
               <AlertDescription>제출 마감은 2026년 10월 31일(금) 18:00입니다.</AlertDescription>
             </Alert>
-            <Alert className="border-l-4 border-l-green-500 bg-fill-positive-subtle">
+            <Alert variant="positive">
               <AlertTitle>접수 완료</AlertTitle>
               <AlertDescription>신청서가 정상 접수되었습니다. 접수번호 2026-0142</AlertDescription>
             </Alert>
-            <Alert role="alert" className="border-l-4 border-l-red-500 bg-fill-critical-subtle">
-              <AlertTitle className="text-text-critical">입력 확인 필요</AlertTitle>
+            <Alert variant="critical" role="alert">
+              <AlertTitle>입력 확인 필요</AlertTitle>
               <AlertDescription>필수 항목 3개가 입력되지 않았습니다.</AlertDescription>
             </Alert>
           </div>
@@ -686,6 +748,27 @@ export default function ComponentsPage() {
 
       <Section id="modal" title="Modal" krds="피드백 > 모달">
         <Markup
+          react={`import {
+  Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger,
+} from '@/components/ui/dialog'
+import { Button } from '@/components/ui/button'
+
+// 포커스 트랩 · Esc 닫기 · 닫을 때 원래 버튼으로 포커스 복귀는 Radix 가 처리합니다
+<Dialog>
+  <DialogTrigger asChild>
+    <Button variant="destructive">신청서 삭제</Button>
+  </DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>신청서를 삭제할까요?</DialogTitle>
+      <DialogDescription>삭제한 신청서는 복구할 수 없습니다. 접수번호 2026-0142</DialogDescription>
+    </DialogHeader>
+    <DialogFooter>
+      <DialogClose asChild><Button variant="secondary">취소</Button></DialogClose>
+      <DialogClose asChild><Button variant="destructive" onClick={remove}>삭제</Button></DialogClose>
+    </DialogFooter>
+  </DialogContent>
+</Dialog>`}
           html={`<!-- <dialog> 를 쓰면 브라우저가 포커스 트랩 · Esc 닫기 · 배경 비활성화를 처리합니다 -->
 <button type="button" class="sds-btn sds-btn--destructive" onclick="dlg.showModal()">
   신청서 삭제
@@ -761,7 +844,7 @@ export default function ComponentsPage() {
             <p className="my-2 font-bold">행정정보 통합 플랫폼 구축</p>
             <p className="text-sm text-text-secondary">제출일 2026.09.01 · 정보서비스본부</p>
             <p className="mt-3">
-              <Badge className="bg-fill-positive-subtle text-text-positive">승인</Badge>
+              <Badge variant="positive">승인</Badge>
             </p>
           </Card>
         </Example>
@@ -772,6 +855,31 @@ export default function ComponentsPage() {
         <P>행정 · 데이터 업무의 핵심 컴포넌트입니다. 숫자는 우측 정렬 + 고정폭 숫자를 씁니다.</P>
         <Markup
           block
+          react={`import {
+  Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow,
+} from '@/components/ui/table'
+import { Badge } from '@/components/ui/badge'
+
+// scrollLabel — 표가 넘칠 때만 키보드 스크롤 영역이 되고, 그 이름으로 낭독됩니다
+<Table scrollLabel="신청 목록">
+  <TableCaption className="sr-only">신청 목록</TableCaption>
+  <TableHeader>
+    <TableRow>
+      <TableHead scope="col">신청번호</TableHead>
+      <TableHead scope="col">사업명</TableHead>
+      <TableHead scope="col">상태</TableHead>
+      <TableHead scope="col" className="text-right">금액(원)</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>2026-0142</TableCell>
+      <TableCell>행정정보 통합 플랫폼</TableCell>
+      <TableCell><Badge variant="positive">승인</Badge></TableCell>
+      <TableCell className="text-right tabular-nums">1,240,000</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>`}
           html={`<div class="sds-table-wrap" tabindex="0" role="region" aria-label="신청 목록">
   <table class="sds-table">
     <caption class="sds-sr-only">신청 목록</caption>
@@ -806,16 +914,16 @@ export default function ComponentsPage() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {[
+                {([
                   ['2026-0142', '행정정보 통합 플랫폼', '승인', '1,240,000', 'positive'],
                   ['2026-0143', '부동산 빅데이터 분석', '검토중', '860,000', 'caution'],
                   ['2026-0144', '전자증명서 유통', '반려', '0', 'critical'],
-                ].map(([no, name, st, amt, tone]) => (
+                ] as const).map(([no, name, st, amt, tone]) => (
                   <TableRow key={no}>
                     <TableCell className="font-mono text-xs">{no}</TableCell>
                     <TableCell>{name}</TableCell>
                     <TableCell>
-                      <Badge className={`bg-fill-${tone}-subtle text-text-${tone}`}>{st}</Badge>
+                      <Badge variant={tone}>{st}</Badge>
                     </TableCell>
                     <TableCell className="text-right tabular-nums">{amt}</TableCell>
                   </TableRow>
@@ -857,16 +965,23 @@ export default function ComponentsPage() {
 
       <Section id="badge" title="Badge" krds="콘텐츠 > 뱃지">
         <Markup
+          react={`import { Badge } from '@/components/ui/badge'
+
+<Badge variant="accent">신규</Badge>
+<Badge variant="positive">승인</Badge>
+<Badge variant="caution">검토중</Badge>
+<Badge variant="critical">반려</Badge>
+<Badge variant="secondary">마감</Badge>`}
           html={`<span class="sds-badge sds-badge--accent">신규</span>
 <span class="sds-badge sds-badge--positive">승인</span>
 <span class="sds-badge sds-badge--caution">검토중</span>
 <span class="sds-badge sds-badge--critical">반려</span>
 <span class="sds-badge">마감</span>`}
         >
-          <Badge>신규</Badge>
-          <Badge className="bg-fill-positive-subtle text-text-positive">승인</Badge>
-          <Badge className="bg-fill-caution-subtle text-text-caution">검토중</Badge>
-          <Badge className="bg-fill-critical-subtle text-text-critical">반려</Badge>
+          <Badge variant="accent">신규</Badge>
+          <Badge variant="positive">승인</Badge>
+          <Badge variant="caution">검토중</Badge>
+          <Badge variant="critical">반려</Badge>
           <Badge variant="secondary">마감</Badge>
           <Badge variant="outline">선택</Badge>
         </Markup>

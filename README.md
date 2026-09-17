@@ -50,6 +50,7 @@ solideo/
 ├─ starters/
 │  └─ html/              ← 빌드 도구 없이 바로 열리는 동작 예제
 ├─ dist/                 ← 생성된 산출물. 프로젝트에 복사해 사용
+│  └─ react/             ← React 컴포넌트 키트 (소스 복사 방식 · README 동봉)
 └─ app/                  ← 문서 사이트 (React + Tailwind v4 + shadcn/ui)
    ├─ src/data/ia.ts        정보구조 — 여기만 고치면 GNB·LNB·검색이 따라옴
    ├─ src/data/library.ts   자산 라이브러리 목록
@@ -63,8 +64,8 @@ solideo/
 
 | 스택 | 파일 | 비고 |
 |---|---|---|
-| 순수 HTML · JSP · Thymeleaf | `solideo-tokens.css` + `solideo-components.css` | 빌드 도구 없음. `.sds-*` 클래스 70개 |
-| React + shadcn/ui | `solideo-shadcn.css` + `solideo-tokens.js` | 이 저장소의 `app/` 이 그 구현 |
+| 순수 HTML · JSP · Thymeleaf | `solideo-tokens.css` + `solideo-components.css` + `solideo-icons.svg` | 빌드 도구 없음. `.sds-*` 클래스 73개 |
+| React + shadcn/ui | `dist/react/` 컴포넌트 키트 | 소스를 복사해 사용. 절차는 `dist/react/README.md` |
 | Vue 3 | `solideo-tokens.css` + `.js` | SFC에서 `var()` 직접 참조 |
 | Quasar | `quasar.variables.sass` | `$primary` 등 브랜드 변수 연결 |
 | Spring Boot · Java | `solideo-tokens.properties` · `SolideoTokens.java` | 메일 · PDF 등 서버 렌더링 |

@@ -94,7 +94,10 @@
         </select>
       </div>
       <div class="filter__actions">
-        <button type="submit" class="sds-btn sds-btn--primary">검색</button>
+        <button type="submit" class="sds-btn sds-btn--primary">
+          <svg class="sds-icon" aria-hidden="true"><use href="./icons.svg#search"></use></svg>
+          검색
+        </button>
         <button type="reset" class="sds-btn sds-btn--secondary">초기화</button>
       </div>
     </form>
@@ -197,7 +200,7 @@
             사업자등록번호<span class="sds-required" aria-hidden="true">*</span>
           </label>
           <input class="sds-input" type="text" id="biz-no" name="bizNo" required
-                 inputmode="numeric" maxlength="12" placeholder="000-00-00000"
+                 inputmode="numeric" maxlength="12" placeholder="000-00-00000" data-format="bizno"
                  autocomplete="off" aria-describedby="biz-no-hint">
           <p class="sds-hint" id="biz-no-hint">하이픈 없이 숫자만 입력해도 됩니다.</p>
         </div>
@@ -211,9 +214,9 @@
 
         <div class="sds-field">
           <label class="sds-label" for="reason">신청 사유</label>
-          <textarea class="sds-textarea" id="reason" name="reason" rows="4"
+          <textarea class="sds-textarea" id="reason" name="reason" rows="4" maxlength="500"
                     aria-describedby="reason-hint" placeholder="500자 이내로 작성해 주세요"></textarea>
-          <p class="sds-hint" id="reason-hint">0 / 500자</p>
+          <p class="sds-hint" id="reason-hint" data-counter="reason">0 / 500자</p>
         </div>
       </fieldset>
 

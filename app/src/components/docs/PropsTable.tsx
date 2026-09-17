@@ -38,7 +38,7 @@ export function PropsTable({ rows, name }: { rows: PropRow[]; name: string }) {
                   {r.name}
                 </code>
                 {r.required && (
-                  <Badge className="ml-1.5 rounded-xs bg-fill-critical-subtle text-[0.625rem] text-text-critical">
+                  <Badge variant="critical" className="ml-1.5 rounded-xs text-[0.625rem]">
                     필수
                   </Badge>
                 )}

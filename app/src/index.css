@@ -19,11 +19,8 @@
     font-size: var(--font-size-body);
     line-height: var(--line-height-normal);
   }
-  /* KRDS 글자 크기 설정 - 사용자가 3단계로 조절
-     모든 글자 크기 토큰이 rem 이므로 루트 크기만 바꾸면 전체가 비례해 커집니다.
-     px 로 고정된 글자 크기가 있으면 이 설정이 그 부분만 건너뛰므로 쓰지 마세요. */
-  html[data-font-scale="lg"]  { font-size: 112.5%; }
-  html[data-font-scale="xl"]  { font-size: 125%; }
+  /* KRDS 글자 크기 설정 규칙은 solideo-tokens.css 에 있습니다 (HTML · JSP 와 공유).
+     글자 크기를 px 로 고정하면 그 부분만 설정을 건너뛰므로 쓰지 마세요. */
   /* KRDS 접근성 - 키보드 포커스는 항상 보이게 */
   :focus-visible { outline: 2px solid var(--border-focus); outline-offset: 2px; }
 

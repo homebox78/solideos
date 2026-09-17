@@ -1,7 +1,7 @@
 /* SOLIDEO Design System — ESM
    자동 생성 파일입니다. 직접 수정하지 마세요.
    원본: tokens/tokens.json · 생성: node tokens/build.mjs
-   version 1.3.1 */
+   version 1.3.2 */
 
 export const tokens = {
   staticBlack: "#14161A",

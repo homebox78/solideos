@@ -1,0 +1,43 @@
+/* SOLIDEO Design System — React 프로젝트 CSS 진입점
+ *
+ * 프로젝트의 index.css 를 이 파일로 바꾸거나, 맨 위에서 import 하세요.
+ * Tailwind v4 가 필요합니다. 경로는 이 파일 기준입니다.
+ */
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* 자체 호스팅 서체 — CDN 사용 안 함 */
+@import "./styles/fonts.css";
+
+/* 솔리데오 디자인 토큰 — tokens/tokens.json 에서 자동 생성 */
+@import "./styles/solideo-tokens.css";
+/* shadcn/ui 표준 변수 ↔ 솔리데오 토큰 연결 + Tailwind v4 @theme */
+@import "./styles/solideo-shadcn.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@layer base {
+  * { @apply border-border outline-ring/50; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-normal);
+  }
+  /* KRDS 글자 크기 설정 규칙은 solideo-tokens.css 에 있습니다 (HTML · JSP 와 공유).
+     글자 크기를 px 로 고정하면 그 부분만 설정을 건너뛰므로 쓰지 마세요. */
+  /* KRDS 접근성 - 키보드 포커스는 항상 보이게 */
+  :focus-visible { outline: 2px solid var(--border-focus); outline-offset: 2px; }
+
+  /* 페이지 내 이동으로 초점을 받은 섹션에는 테두리를 그리지 않습니다.
+     초점이 옮겨진 사실은 스크롤과 스크린리더 낭독으로 이미 전달됩니다. */
+  section[tabindex='-1']:focus { outline: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

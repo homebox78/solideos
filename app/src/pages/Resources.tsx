@@ -26,12 +26,18 @@ const SNIPPETS: Record<string, { label: string; code: string }> = {
   },
   react: {
     label: 'React (shadcn/ui)',
-    code: `// main.tsx — 전역에서 한 번만
-import '@solideo/design-system/css'        // 토큰
-import '@solideo/design-system/shadcn'     // shadcn 변수 연결 + Tailwind @theme
+    code: `// 1) 컴포넌트 키트를 프로젝트에 복사합니다 (자세한 절차: dist/react/README.md)
+//    dist/react/src/components/ui/  →  src/components/ui/
+//    dist/react/src/lib · styles · solideo.css  →  src/
+//    dist/react/public/fonts/  →  public/fonts/
 
-// 이후 shadcn 컴포넌트가 자동으로 솔리데오 브랜드를 씁니다
+// 2) main.tsx — 전역에서 한 번만
+import './solideo.css'   // Tailwind v4 + 토큰 + shadcn 테마 + 서체
+
+// 3) 사용
 import { Button } from '@/components/ui/button'
+import { TextField } from '@/components/ui/field'
+<TextField label="사업자등록번호" required />
 <Button>신청서 제출</Button>
 
 // 색을 코드로 다뤄야 할 때 (차트 · 캔버스)
@@ -160,7 +166,7 @@ export default function Resources() {
             ['2', '전역 스타일에서 한 번 불러오기', <Code>solideo-tokens.css</Code>],
             ['3', '색 · 간격 하드코딩을 토큰 참조로 교체', <Code>var(--fill-accent)</Code>],
             ['4', 'React가 아니면 CSS 컴포넌트 추가', <Code>solideo-components.css</Code>],
-            ['4', 'React라면 shadcn 테마 레이어 추가', <Code>solideo-shadcn.css</Code>],
+            ['4', 'React라면 컴포넌트 키트 복사', <Code>dist/react/</Code>],
             ['5', '릴리스 전 체크리스트 통과', '아래 Check List'],
           ]}
         />
@@ -170,7 +176,8 @@ npm i @solideo/design-system
 
 # 파일 복사 방식 (사내망 · 폐쇄망 프로젝트)
 cp dist/solideo-tokens.css  <프로젝트>/src/css/
-cp dist/solideo-shadcn.css  <프로젝트>/src/css/   # React + Tailwind일 때만`}
+cp dist/solideo-components.css dist/solideo-icons.svg <프로젝트>/src/css/   # HTML · JSP
+cp -r dist/react/src/.  <프로젝트>/src/                                       # React (README 참고)`}
         >
           <p className="text-sm text-text-secondary">
             폐쇄망 SI 사업이 많아 <b>파일 복사만으로도 완결</b>되도록 설계했습니다. 빌드 도구 의존성이 없습니다.
@@ -205,9 +212,9 @@ cp dist/solideo-shadcn.css  <프로젝트>/src/css/   # React + Tailwind일 때�
             [
               '순수 HTML · JSP · Thymeleaf',
               <><Code>solideo-tokens.css</Code> + <Code>solideo-components.css</Code></>,
-              <>빌드 도구 없음. <Code>.sds-*</Code> 클래스 70개</>,
+              <>빌드 도구 없음. <Code>.sds-*</Code> 클래스 {CSS_CLASSES.length}개 · 아이콘 <Code>solideo-icons.svg</Code></>,
             ],
-            ['React + shadcn/ui', <><Code>solideo-shadcn.css</Code> + <Code>.js</Code></>, '이 사이트가 그 구현'],
+            ['React + shadcn/ui', <><Code>dist/react/</Code> 컴포넌트 키트</>, '소스 복사 방식 · 이 사이트와 같은 코드'],
             ['Vue 3', <><Code>solideo-tokens.css</Code> + <Code>.js</Code></>, 'SFC에서 var() 직접 참조'],
             ['Quasar', <Code>quasar.variables.sass</Code>, '$primary 등 브랜드 변수 연결'],
             ['Spring Boot · Java', <><Code>.properties</Code> · <Code>SolideoTokens.java</Code></>, '메일 · PDF 등 서버 렌더링'],
@@ -553,6 +560,11 @@ node tokens/verify.mjs    # 접근성 · 계층 규칙 검증 (CI 게이트)`}
         <Spec
           head={['버전', '날짜', '내용']}
           rows={[
+            [
+              'v1.3.2',
+              '2026.09.17',
+              '예제 소스 실사용 점검 후 수정. 글자 크기 설정 규칙이 문서 사이트에만 있어 HTML · JSP 에서 동작하지 않던 것을 토큰 CSS 로 이동. React 컴포넌트를 복사해 쓸 수 있는 키트(dist/react/)로 배포하고 빈 Vite 프로젝트에서 빌드 · 렌더 검증. Badge · Alert 에 상태 변형(accent · positive · caution · critical · info) 추가 — 문서 미리보기가 원시 색상 클래스로 그리던 것을 교체. 페이지네이션 · 브레드크럼 · 모달의 영어 라벨 한글화, 현재 페이지 표시를 CSS 판과 일치. 컴포넌트 11종 전부에 React / HTML·JSP 코드와 import 문 제공. HTML 용 아이콘 스프라이트(solideo-icons.svg · .sds-icon) 추가. 스타터 킷 글자 수 카운터 · 사업자등록번호 서식 동작 추가.',
+            ],
             [
               'v1.3.1',
               '2026.09.09',

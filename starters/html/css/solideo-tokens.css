@@ -1,7 +1,7 @@
 /* SOLIDEO Design System — CSS Custom Properties
    자동 생성 파일입니다. 직접 수정하지 마세요.
    원본: tokens/tokens.json · 생성: node tokens/build.mjs
-   version 1.3.1 */
+   version 1.3.2 */
 
 :root {
 
@@ -295,3 +295,7 @@
   --sds-red-700: var(--crimson-700);
   --sds-blue-500: var(--blue-500);
 }
+
+/* KRDS 글자 크기 설정 · <html data-font-scale="base | lg | xl"> */
+html[data-font-scale="lg"] { font-size: 112.5%; }
+html[data-font-scale="xl"] { font-size: 125%; }
